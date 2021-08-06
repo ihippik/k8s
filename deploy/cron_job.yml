@@ -15,4 +15,7 @@ spec:
           containers:
             - name: job
               image: ihippik/k8s-scum:main
-              args: [ "job" ]
+              args:
+                - job
+                - "-s"
+                - 10s

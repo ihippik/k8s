@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: scum-job
+spec:
+  template:
+    metadata:
+      labels:
+        app: scum-job
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: job
+          image: ihippik/k8s-scum:main
+          args: ["job"]

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: scum-pod-manual
+  labels:
+    kind: scum
+spec:
+  containers:
+    - name: k8s-scum
+      image: ihippik/k8s-scum:main
+      args:
+        - "server"
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      livenessProbe:
+        httpGet:
+          port: 8080
+          path: /healthcheck
